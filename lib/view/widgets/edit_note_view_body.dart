@@ -6,10 +6,17 @@ class EditNoteViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CostomAppBar(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        children: [
+          CostomAppBar(
+            iconData: Icons.done,
+            titel: 'Edit',
+            onPressed: () {},
+          ),
+        ],
+      ),
     );
   }
 }

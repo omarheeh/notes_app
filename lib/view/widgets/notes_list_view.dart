@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:noteapp/view/edit_note_view.dart';
 import 'package:noteapp/view/widgets/costom_note_item.dart';
 
 class NotesListView extends StatelessWidget {
@@ -11,7 +12,15 @@ class NotesListView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: ListView.builder(
           itemCount: 4,
-          itemBuilder: ((context, index) => NoteItem()),
+          itemBuilder: ((context, index) => NoteItem(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => EditNoteView(),
+                    ),
+                  );
+                },
+              )),
         ),
       ),
     );

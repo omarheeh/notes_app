@@ -2,19 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:noteapp/constens.dart';
 
 class CostomTextField extends StatelessWidget {
-  final TextEditingController controller;
+  final TextEditingController? controller;
+  final Function(String?)? onSaved;
   final String hintText;
   final int maxLines;
   const CostomTextField({
     super.key,
-    required this.controller,
+    this.controller,
     required this.hintText,
     this.maxLines = 1,
+    this.onSaved,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onSaved: onSaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return "Field is required";
+        } else {
+          return null;
+        }
+      },
       controller: controller,
       cursorColor: Color(KPrimaryColor),
       maxLines: maxLines,

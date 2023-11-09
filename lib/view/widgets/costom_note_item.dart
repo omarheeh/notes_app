@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:noteapp/models/note_model.dart';
 
 class NoteItem extends StatelessWidget {
   final VoidCallback onTap;
+  final NoteModel noteModel;
   const NoteItem({
     super.key,
     required this.onTap,
+    required this.noteModel,
   });
 
   @override
@@ -24,7 +27,7 @@ class NoteItem extends StatelessWidget {
             ListTile(
               contentPadding: EdgeInsets.only(bottom: 12),
               title: Text(
-                'Flutter Tips',
+                noteModel.titel,
                 style: TextStyle(
                   fontSize: 26,
                   color: Colors.grey[900],
@@ -35,7 +38,7 @@ class NoteItem extends StatelessWidget {
                   top: 12,
                 ),
                 child: Text(
-                  'Build your career with omar heeh',
+                  noteModel.subTitle,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.grey[600],
@@ -54,7 +57,7 @@ class NoteItem extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(right: 8),
               child: Text(
-                'May21 , 2022',
+                noteModel.date,
                 style: TextStyle(
                   color: Colors.grey[600],
                 ),

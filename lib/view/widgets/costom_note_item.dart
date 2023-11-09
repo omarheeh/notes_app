@@ -46,7 +46,16 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  noteModel.delete();
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                    'delete sucsses',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  )));
+                },
                 icon: Icon(
                   Icons.delete,
                   color: Colors.black,
